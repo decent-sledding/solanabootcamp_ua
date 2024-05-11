@@ -1,6 +1,6 @@
 # Project Setup
 
-## From Scratch
+## From Scratch (wanna do it yourself?)
 1. Create new directory
     ```sh
     mkdir
@@ -30,11 +30,32 @@
     ```sh
     npx esrun <script_name> # without '.ts' extension
     ```
+    - for example
+    ```sh
+    npx esrun src/keygen # yes, without '.ts' :)
+    ```
 
 
 # Documentation
-1. `script`
+#### 1. `src/keygen.ts`
+> This script allows to generate a new pair of Public-Private keys.
 
+```sh
+cd lab_1
+npm i
+npx esrun src/keygen
+```
+
+- generates a new keypair
+- prints keys to the console (private key is veiled for entertaining purposes tho)
+- saves private key to the `.env` file (inside current working directory)
+
+#### 2. `src/keyload`
+> Extracts Keypair from the secret key that stored inside `.env` file
+
+```sh
+npx esrun src/keyload
+```
 
 
 # Basic Info 
