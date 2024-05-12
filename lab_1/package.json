@@ -14,8 +14,7 @@
     "@solana/web3.js": "^1.91.8",
     "bs58": "^5.0.0",
     "esrun": "^3.2.26",
-    "punycode": "^2.3.1",
-    "shared": "file:../shared"
+    "punycode": "^2.3.1"
   },
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
