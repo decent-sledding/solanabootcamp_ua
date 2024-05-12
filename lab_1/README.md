@@ -1,3 +1,6 @@
+# Lab 2
+
+---
 # Project Setup
 
 ## From Scratch (wanna do it yourself?)
