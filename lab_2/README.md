@@ -18,6 +18,8 @@ npm install
 npx esrun src/keygen
 ```
 
+- result will look like this
+    - ![getbalance result](../assets/img/lab_2/getbalance.png)
 
 
 #### 2. `src/soldrop.ts`
@@ -28,12 +30,30 @@ npx esrun src/keygen
 npx esrun src/soldrop
 ```
 
+#### 3. `src/keygrind.ts` (Bonus Task)
+> Tries to come up with a key pair where a public key meets certain user-defined conditions
+
+- to get usage help run:
+```sh
+npx esrun src/keygrind --help
+```
+
+- Example result after script execution:
+    - ![keygrind result](../assets/img/lab_2/keygrind_result.png)
 
 
 # Documentation
 ## Limitation
 - The use of Airdrop API is limited to one request per day (24h) from a specific IP
 - You can request only `1SOL` per account on Solana Devnet
+
+## Key Grinding
+> Key grinding, as you may already guessed, is all about brute-force.
+> We keep crunching numbers until a desired conditions are met.
+>
+> This may really take some time if you want something exclusive,
+>
+> **but you don't mind waiting a couple of dozens of years, do you?**
 
 
 # Bonus Task: accessing account through extension wallet
