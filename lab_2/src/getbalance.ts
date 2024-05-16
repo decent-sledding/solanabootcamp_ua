@@ -8,7 +8,7 @@ import {
 import { get_keys_from_env_or_cli, get_logger } from 'sharedlibs';
 
 
-const keypair = get_keys_from_env_or_cli();
+const keypair = get_keys_from_env_or_cli().parse().parseKeys();
 const log = get_logger();
 
 const connection = new Connection(clusterApiUrl('devnet'));
