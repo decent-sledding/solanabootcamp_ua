@@ -7,61 +7,59 @@ import { Command } from 'commander';
 const bs58 = require('bs58');
 
 
-interface UserKeys {
-    publicKey: undefined | PublicKey,
-    secretKey: undefined | Ed25519SecretKey,
+class UserKeys {
+    pair?: Keypair
+    publicKey?: PublicKey
+    secretKey?: Ed25519SecretKey
 }
 
 class CustomCommand extends Command {
-    override parse(args=undefined): CustomCommand {
+    override parse(args=undefined) {
         super.parse(args || process.argv);
         return this;
     }
 
-    parseKeys() {
+    constructor() {
+        super();
+    }
+
+    public parseKeys() {
         let ops = this.opts();
         const initKeys = () => ({
             publicKey: undefined,
             secretKey: undefined,
         });
-        const ukeys: UserKeys = initKeys();
-
-        ukeys.publicKey;
-
-        try {
-            const keypairFromEnv = getKeypairFromEnvironment('SECRET_KEY');
-
-            ukeys.publicKey = keypairFromEnv.publicKey;
-            ukeys.secretKey = keypairFromEnv.secretKey;
-        } catch (e) {}
-
-        if (!ops.secretKey)
-            return ukeys;
-
-        // Reset keys: keys must be paired and not parsed from different places
-        // ukeys = initKeys();
-
+        let ukeys: UserKeys = initKeys();
+    
         if (ops.publicKey !== undefined) {
             try {
                 ukeys.publicKey = new PublicKey(ops.publicKey);
             } catch(e) {}
         }
-
+    
         if (ops.secretKey !== undefined) {
             try {
                 const kp = Keypair.fromSecretKey(bs58.decode(ops.secretKey));
-
+    
+                ukeys.pair = kp;
                 ukeys.publicKey = kp.publicKey;
                 ukeys.secretKey = kp.secretKey;
+
+                return ukeys;
             } catch(e) {}
         }
 
+        try {
+            const keypairFromEnv = getKeypairFromEnvironment('SECRET_KEY');
+    
+            ukeys.pair = keypairFromEnv;
+            ukeys.publicKey = keypairFromEnv.publicKey;
+            ukeys.secretKey = keypairFromEnv.secretKey;
+        } catch (e) {}
+    
         return ukeys;
     }
 }
-
-
-
 
 
 /** Acquire keys from CLI arguments or from Environment
@@ -71,7 +69,6 @@ class CustomCommand extends Command {
  * - 3. If no secret keys provided, then:
  *   - 3.1. Publc key from CLI argument takes priority over other keys (currently )
  * 
- * @returns {CustomCommand}
  */
 function get_keys_from_env_or_cli(): CustomCommand {
     config();
@@ -82,7 +79,6 @@ function get_keys_from_env_or_cli(): CustomCommand {
 
         .option('-k, --public-key <key>', 'Custom Public Key to request Airdrop for')
         .option('-s, --secret-key <key>', 'Secret key. Will take priority (pubkey will be derived from secret)');
-    program.action(program.parseKeys);
 
     return program; 
 }
@@ -117,4 +113,6 @@ export {
     get_logger,
     get_veiled_secret_key,
     get_keys_from_env_or_cli,
+    CustomCommand,
+    UserKeys,
 };
