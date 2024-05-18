@@ -1,0 +1,26 @@
+{
+  "name": "lab_3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@solana-developers/helpers": "^2.3.0",
+    "@solana/web3.js": "^1.91.8",
+    "bs58": "^5.0.0",
+    "commander": "^12.0.0",
+    "dotenv": "^16.4.5",
+    "esrun": "^3.2.26",
+    "punycode": "^2.3.1",
+    "uri-js": "^4.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
+}

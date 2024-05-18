@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+        "sharedlibs": ["../shared/"],
+    }
+  },
+  "exclude": ["**/*.spec.ts"],
+}
