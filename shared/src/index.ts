@@ -1,5 +1,11 @@
 import { config } from 'dotenv';
-import { PublicKey, Keypair, Ed25519SecretKey, Ed25519Program } from '@solana/web3.js';
+import {
+    PublicKey,
+    Keypair,
+    Ed25519SecretKey,
+    LAMPORTS_PER_SOL,
+    Connection,
+} from '@solana/web3.js';
 import { getKeypairFromEnvironment } from '@solana-developers/helpers';
 import { Command } from 'commander';
 
@@ -61,6 +67,30 @@ class CustomCommand extends Command {
     }
 }
 
+type Lamports = number;
+type SolCoins = number;
+
+class Balance {
+    lamports: Lamports
+    solcoins: SolCoins
+
+    constructor(lamps: Lamports) {
+        this.set(lamps);
+    }
+
+    public set(newLamps: Lamports) {
+        this.lamports = newLamps;
+        this.solcoins = newLamps / LAMPORTS_PER_SOL;
+    }
+
+    public getLamps(): Lamports {
+        return this.lamports;
+    }
+    
+    public getSOL(): SolCoins {
+        return this.solcoins;
+    }
+}
 
 /** Acquire keys from CLI arguments or from Environment
  * Argument parsing priority (if a secret key is parsed then public key is derived from it)
@@ -109,10 +139,18 @@ function get_logger(do_log: boolean = true) {
     return do_log ? log : sink;
 }
 
+
+async function get_balance(conn: Connection, key: PublicKey): Promise<Balance> {
+    return new Balance(await conn.getBalance(key)); 
+}
+
+
 export {
     get_logger,
     get_veiled_secret_key,
     get_keys_from_env_or_cli,
+    get_balance,
     CustomCommand,
     UserKeys,
+    Balance,
 };
