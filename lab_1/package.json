@@ -1,7 +1,7 @@
 {
   "name": "lab_1",
   "version": "1.0.0",
-  "description": "## From Scratch 1. Create new directory     ```sh     mkdir     ``` 2. Initialize a new git repository inside that directory     ```sh     cd lab1     git init .     ``` 2. Initialize a new NodeJS package     ```sh     npm init -y     ``` 3. Install dependencies     ```sh     npm install @solana/web3.js @solana-developers/helpers esrun     ```",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
