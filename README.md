@@ -4,8 +4,19 @@
 ---
 # Contents
 ## 1. [Lab 1](lab_1/)
+> - Generating new Solana Account keys
+> - Storing and loading keys to/from `.env` file
 ## 2. [Lab 2](lab_2/)
+> - Obtaining balance for a given account
+> - Grinding keys with given properties
+> - Requesting Solana Airdrop
 ## 3. [Lab 3](lab_3/)
+> - Sending Solana
+> - Creating Memo Notes
+## 4. [Lab 4](lab_4/)
+> - Creating SPL Token Mints
+> - Creating new Token Mint Associated Accounts
+> - Sending Tokens between accounts
 
 
 
