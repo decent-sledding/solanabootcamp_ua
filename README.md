@@ -1,4 +1,4 @@
-# Solutions for Solana Ukrainian BOOBcamp from [`Kumeka Team`](https://kumeka.team/)
+# Solutions for Solana Ukrainian BOOTcamp from [`Kumeka Team`](https://kumeka.team/)
 
 
 ---
