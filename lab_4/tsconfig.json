@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "target": "ES2022",
+    "moduleResolution": "node10",
+    "module": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+        "sharedlibs": ["../shared/"],
+    }
+  },
+  "exclude": ["**/*.spec.ts"],
+}
