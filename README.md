@@ -3,9 +3,9 @@
 
 ---
 # Contents
-## [Lab 1](lab_1/)
-## [Lab 2](lab_2/)
-## [Lab 3](lab_3/)
+## 1. [Lab 1](lab_1/)
+## 2. [Lab 2](lab_2/)
+## 3. [Lab 3](lab_3/)
 
 
 
